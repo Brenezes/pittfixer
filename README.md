@@ -1,21 +1,51 @@
 # PittFixer
 
-O *PittFixer* é uma ferramenta Python para corrigir e ajustar eventos em um banco de dados SQLite. Ele atualiza valores de colunas como prof, compr, larg e tipo, além de gerar um relatório CSV com os detalhes das alterações.
+*PitFixer* is a Python-based tool designed to automate the correction and adjustment of events in an SQLite database. It is particularly useful for managing and optimizing data related to pits (or cavities) in surfaces, ensuring that dimensions and types are updated according to specific rules.
 
-## Funcionalidades ##
+## Features ##
 
-- Corrige eventos com * no tipo e larg < 9.
-- Atualiza os tipos PM, *PM, ASC, *ASC, RSC e *RSC para CORR, COSC e ASCI, respectivamente.
-- Gera um relatório CSV com os valores originais, novos valores e a coluna posAxi.
+**Event Correction:**
 
-## Pré-requisitos ##
+- Automatically corrects events with in the type column and either width < X or length < X.
 
-- Python 3.x instalado.
-- Um banco de dados (prdb) SQLite com a tabela catadef e as colunas necessárias (id, tipo, prof, compr, larg, posAxi, comentario).
+- Updates prof, width, and length with values specified ranges.
 
-## Como Executar ##
+- Pivot table update, being adaptive.
 
-1. *Clone o repositório* (se aplicável):
+
+### Type Updates:
+
+**Converts specific event types to standardized values:**
+
+- Renames corrosion events according to their technical profile and customer needs
+
+
+### CSV Report:
+
+**Generates a detailed CSV report (log_pitfixer.csv) with the original and updated values for each corrected event, including:**
+
+- Original and new dimensions (prof, width, and length).
+
+- Original and new event types.
+
+- Axial position (posAxi).
+
+- Comments with the original values.
+
+- Flexible Database Input:
+
+- Allows users to specify the SQLite database file at runtime.
+
+- Works with any database that follows the required schema.
+
+## Requirements ##
+
+- Python 3.x installed.
+- An SQLite database (prdb) with the catadef table and the necessary columns (id, type, prof, length, width, posAxi, comment).
+
+## How to Run ##
+
+1. *Clone the repository* (if applicable):
    ```bash
-   git clone https://github.com/brxnvzs/pitttfixer.git
+   git clone https://github.com/Brenezes/pitttfixer.git
    cd pitfixer
