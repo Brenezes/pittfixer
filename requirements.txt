@@ -1,0 +1,7 @@
+# requirements.txt
+# Dependências para o PitFixer
+# Python 3 é necessário
+
+sqlite3       # Biblioteca padrão do Python (não precisa instalar)
+csv           # Biblioteca padrão do Python (não precisa instalar)
+random        # Biblioteca padrão do Python (não precisa instalar)
